@@ -76,7 +76,7 @@ public class TurretSubsystem extends PIDSubsystem implements Loggable {
 		m_TurretPastPosition = m_TurretCurrentPosition;
 		m_currentAngle = new Rotations((getMeasurement() == 0) ? 0 : (getMeasurement() / TICKS_PER_DEGREE),
 				RotationUnits.DEGREE);
-		System.out.println(getMeasurement());
+		//System.out.println(getMeasurement());
 	}
 
 	@Config

@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.team2412.robot.Commands.DriveCommands.DriveCommand;
 import io.github.oblarg.oblog.Loggable;
 import io.github.oblarg.oblog.annotations.Config;
 import io.github.oblarg.oblog.annotations.Log;
@@ -16,8 +15,8 @@ import io.github.oblarg.oblog.annotations.Log;
 public class DriveBaseSubsystem extends SubsystemBase implements Loggable {
 
 	private DifferentialDrive m_robotDrive;
-	private SpeedControllerGroup m_leftMotors;
-	private SpeedControllerGroup m_rightMotors;
+	//private SpeedControllerGroup m_leftMotors;
+	//private SpeedControllerGroup m_rightMotors;
 	
 
 	public Vector m_motion;
@@ -27,13 +26,11 @@ public class DriveBaseSubsystem extends SubsystemBase implements Loggable {
 	@Log
 	public double CurrentYSpeed;
 
-	public DriveBaseSubsystem(DifferentialDrive robotDrive, ADXRS450_Gyro gyro, Joystick joystick) {
+	public DriveBaseSubsystem(DifferentialDrive robotDrive, ADXRS450_Gyro gyro) {
 		m_motion = new Vector(0);
 		this.m_robotDrive = robotDrive;
 		this.setName("DriveBase Subsystem");
 		m_gyro = gyro;
-
-		setDefaultCommand(new DriveCommand(this, joystick));
 	}
 
 	public void drive(Joystick joystick) {
@@ -60,15 +57,15 @@ public class DriveBaseSubsystem extends SubsystemBase implements Loggable {
 	}
 
 	public void twoJoystickDrive(Joystick rightJoystick, Joystick leftJoystick, Button button) {
-		if(button.get()) {
-			double averageY = (rightJoystick.getY() + leftJoystick.getY())/2;
-			m_rightMotors.set(averageY);
-			m_leftMotors.set(averageY);
-			CurrentYSpeed = averageY;
-		} else {
-			m_rightMotors.set(rightJoystick.getY());
-			m_leftMotors.set(leftJoystick.getY());
-		}
+		// if(button.get()) {
+		// 	double averageY = (rightJoystick.getY() + leftJoystick.getY())/2;
+		// 	m_rightMotors.set(averageY);
+		// 	m_leftMotors.set(averageY);
+		// 	CurrentYSpeed = averageY;
+		// } else {
+		// 	m_rightMotors.set(rightJoystick.getY());
+		// 	m_leftMotors.set(leftJoystick.getY());
+		// }
 		
 		
 	}

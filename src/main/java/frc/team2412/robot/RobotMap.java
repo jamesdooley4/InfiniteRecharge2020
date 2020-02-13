@@ -31,10 +31,10 @@ public class RobotMap {
 	// DRIVEBASE SUBSYSTEM
 	// -------------------------------------------------------------------------
 	// DriveBase Motor ports
-	public static final int LEFT_FRONT_ID = 0;
-	public static final int LEFT_BACK_ID = 0;
-	public static final int RIGHT_FRONT_ID = 0;
-	public static final int RIGHT_BACK_ID = 0;
+	public static final int LEFT_FRONT_ID = 1;
+	public static final int LEFT_BACK_ID = 2;
+	public static final int RIGHT_FRONT_ID = 3;
+	public static final int RIGHT_BACK_ID = 4;
 
 	// DriveBase Motors
 	private static WPI_TalonFX leftFront = new WPI_TalonFX(LEFT_FRONT_ID);
@@ -60,19 +60,19 @@ public class RobotMap {
 	private static final int pneumatic1Closed = 2;
 	private static final int pneumatic2Open = 3;
 	private static final int pneumatic2Closed = 4;
-	public static DoubleSolenoid leftPneumatic = new DoubleSolenoid(pneumatic1Open, pneumatic1Closed);
+	public static DoubleSolenoid leftPneumatic =  new DoubleSolenoid(pneumatic1Open, pneumatic1Closed);
 	public static DoubleSolenoid rightPneumatic = new DoubleSolenoid(pneumatic2Open, pneumatic2Closed);
 
 	// Motors
-	private static final int climbMotor1 = 1;
-	private static final int climbMotor2 = 2;
+	private static final int climbMotor1 = 5;
+	private static final int climbMotor2 = 6;
 	public static CANSparkMax leftClimbMotor = new CANSparkMax(climbMotor1, MotorType.kBrushless);
 	public static CANSparkMax rightClimbMotor = new CANSparkMax(climbMotor2, MotorType.kBrushless);
 
 	// IDs
-	private final static int indexBackMotorID = 1;
-	private final static int indexFrontMotorID = 2;
-	private final static int indexMidMotorID = 3;
+	private final static int indexBackMotorID = 7;
+	private final static int indexFrontMotorID = 8;
+	private final static int indexMidMotorID = 9;
 	private final static int backSensorID = 1;
 	private final static int backMidSensorID = 2;
 	private final static int midSensorID = 3;
@@ -80,18 +80,10 @@ public class RobotMap {
 	private final static int frontSensorID = 5;
 	private final static int intakeFrontSensorID = 6;
 	private final static int intakeBackSensorID = 7;
-	private final static int frontDoubleSolenoidDown_ID = 1;
-	private final static int frontDoubleSolenoidUp_ID = 2;
-	private final static int rearDoubleSolenoidDown_ID = 3;
-	private final static int rearDoubleSolenoidUp_ID = 4;
-
 	// motors
 	public static CANSparkMax indexFrontMotor = new CANSparkMax(indexFrontMotorID, MotorType.kBrushless);
 	public static CANSparkMax indexBackMotor = new CANSparkMax(indexBackMotorID, MotorType.kBrushless);
 	public static CANSparkMax indexMidMotor = new CANSparkMax(indexMidMotorID, MotorType.kBrushless);
-
-	public static DoubleSolenoid frontClutch = new DoubleSolenoid(frontDoubleSolenoidUp_ID, frontDoubleSolenoidDown_ID);
-	public static DoubleSolenoid rearClutch = new DoubleSolenoid(rearDoubleSolenoidUp_ID, rearDoubleSolenoidDown_ID);
 
 	// sensors
 	public static DigitalInput back = new DigitalInput(backSensorID);
@@ -106,12 +98,12 @@ public class RobotMap {
 	public static final int exampleID = 1;
 
 	// Turret Subsystem
-	public static final int turretMotorID = 1;
+	public static final int turretMotorID = 10;
 	public static WPI_TalonSRX turretMotor = new WPI_TalonSRX(turretMotorID);
 
 	// Flywheel subsystem
-	public static final int flywheelMotorID1 = 0;
-	public static final int flywheelMotorID2 = 2;
+	public static final int flywheelMotorID1 = 11;
+	public static final int flywheelMotorID2 = 12;
 
 	public static CANSparkMax flywheelMotor1 = new CANSparkMax(flywheelMotorID1, MotorType.kBrushless);
 	public static CANSparkMax flywheelMotor2 = new CANSparkMax(flywheelMotorID2, MotorType.kBrushless);
@@ -128,8 +120,8 @@ public class RobotMap {
 
 	public static DoubleSolenoid intakeUpDown = new DoubleSolenoid(INTAKE_UP_PORT, INTAKE_DOWN_PORT);
 
-	public static final int INTAKE_FRONT_PORT = 1;
-	public static final int INTAKE_BACK_PORT = 2;
+	public static final int INTAKE_FRONT_PORT = 13;
+	public static final int INTAKE_BACK_PORT = 14;
 
 	public static CANSparkMax intakeFrontMotor = new CANSparkMax(INTAKE_FRONT_PORT, MotorType.kBrushless);
 	public static CANSparkMax intakeBackMotor = new CANSparkMax(INTAKE_BACK_PORT, MotorType.kBrushless);
@@ -150,7 +142,7 @@ public class RobotMap {
 	public static ColorSensorV3 colorSensor = new ColorSensorV3(COLOR_SESNOR_PORT);
 	public static ColorMatch colorMatcher = new ColorMatch();
 
-	public static final int CONTROL_PANEL_MOTOR_PORT = 1;
+	public static final int CONTROL_PANEL_MOTOR_PORT = 15;
 	public static Talon colorSensorMotor = new Talon(CONTROL_PANEL_MOTOR_PORT);
 
 	// ----------------------------------------------------------------------------------------------

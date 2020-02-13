@@ -50,7 +50,7 @@ public class DriveBaseSubsystemTest {
 		mockedJoystick = mock(Joystick.class);
 		mockedGenericHID = mock(GenericHID.class);
 
-		realDriveBaseSubsystem = new DriveBaseSubsystem(mockedDifferntialDrive, mockedGyro, mockedJoystick);
+		realDriveBaseSubsystem = new DriveBaseSubsystem(mockedDifferntialDrive, mockedGyro);
 	}
 
 	// This test makes sure that the example command calls the .subsystemMethod of
