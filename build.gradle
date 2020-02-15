@@ -9,7 +9,7 @@ repositories {
   maven {
     credentials  {
         username = "UserName"
-        password = "${githubPat}"
+        password = System.getenv('githubPat')
     }
     url 'https://maven.pkg.github.com/robototes/2412RobotLibrary' }
 }
@@ -54,7 +54,7 @@ def includeDesktopSupport = false
 // Defining my dependencies. In this case, WPILib (+ friends), and vendor libraries.
 // Also defines JUnit 4.
 dependencies {
-    implementation 'com.robototes:2412RobotLibrary:2020.1_maven4'
+    implementation 'com.robototes:2412RobotLibrary:2020.02.15b'
     
     //compile pathfinder()
     
