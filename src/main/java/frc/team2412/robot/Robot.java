@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.PrintCommand;
 import edu.wpi.first.wpilibj2.command.SelectCommand;
+import frc.team2412.robot.Commands.DriveCommands.DriveCommand;
 import io.github.oblarg.oblog.Logger;
 
 /**
@@ -86,6 +87,14 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
+	}
+	/**
+	 * This function is called once when autonomous is started
+	 */
+	@Override
+	public void teleopInit() {
+		DriveCommand driveCommand = new DriveCommand(RobotMap.m_robotContainer.m_driveBaseSubsystem, m_OI.driverStick, m_OI.codriverStick, m_OI.indexerShootButton);
+		RobotMap.m_robotContainer.m_driveBaseSubsystem.setDefaultCommand(driveCommand);
 	}
 
 	/**
