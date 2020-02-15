@@ -17,15 +17,15 @@ public class IntakeConstants {
 	public static enum IntakeState {
 
 		// Creates a value called up which is equal to kForward
-		EXTENDED(DoubleSolenoid.Value.kForward),
+		EXTENDED(true),
 
 		// Creates a value called down which is equal to kReverse
-		WITHDRAWN(DoubleSolenoid.Value.kReverse);
+		WITHDRAWN(false);
 
 		// Creates a value that can be set to up and down
-		public DoubleSolenoid.Value value;
+		public boolean value;
 
-		private IntakeState(DoubleSolenoid.Value value) {
+		private IntakeState(boolean value) {
 			this.value = value;
 		}
 	}

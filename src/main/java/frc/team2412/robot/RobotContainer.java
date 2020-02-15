@@ -6,13 +6,11 @@ import java.util.Map;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.SelectCommand;
 import frc.team2412.robot.Subsystems.AutonumousSubsystem;
 import frc.team2412.robot.Subsystems.ClimbLiftSubsystem;
 import frc.team2412.robot.Subsystems.ClimbMotorSubsystem;
 import frc.team2412.robot.Subsystems.ControlPanelColorSubsystem;
 import frc.team2412.robot.Subsystems.DriveBaseSubsystem;
-import frc.team2412.robot.Subsystems.ExampleSubsystem;
 import frc.team2412.robot.Subsystems.FlywheelSubsystem;
 import frc.team2412.robot.Subsystems.HoodSubsystem;
 import frc.team2412.robot.Subsystems.IndexerSubsystem;
@@ -26,18 +24,6 @@ import io.github.oblarg.oblog.annotations.Log;
 // this is the class for containing all the subsystems and OI of the robot
 public class RobotContainer {
 	// Subsystems
-	Command m_exampleSelectCommand = new SelectCommand(
-			// Maps selector values to commands
-			Map.ofEntries(entry(1, null), entry(2, null), entry(3, null)), this::select
-
-	);
-	
-	
-	private int select() {
-		return 1;
-	}
-	public ExampleSubsystem m_ExampleSubsystem;
-
 	@Log(name = "Limelight Subsystem")
 	public LimelightSubsystem m_LimelightSubsystem;
 
@@ -82,9 +68,6 @@ public class RobotContainer {
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 
 	public RobotContainer() {
-		// create and instance of example subsystem with the id from robot map
-		m_ExampleSubsystem = new ExampleSubsystem(RobotMap.exampleID);
-
 		m_ClimbLiftSubsystem = new ClimbLiftSubsystem(RobotMap.climbLeftPneumatic, RobotMap.climbRightPneumatic);
 		m_ClimbMotorSubsystem = new ClimbMotorSubsystem(RobotMap.leftClimbMotor, RobotMap.rightClimbMotor);
 

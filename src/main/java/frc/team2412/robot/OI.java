@@ -4,7 +4,6 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import frc.team2412.robot.Commands.ExampleCommand;
 import frc.team2412.robot.Commands.ClimbCommands.ClimbDeployRailsCommand;
 import frc.team2412.robot.Commands.ClimbCommands.ClimbExtendArmCommand;
 import frc.team2412.robot.Commands.ClimbCommands.ClimbRetractRailsCommand;
@@ -67,7 +66,6 @@ public class OI {
 	public Joystick codriverStick = new Joystick(CODRIVER_STICK_PORT);
 
 	// Buttons
-	public Button exampleSubsystemMethod = new JoystickButton(driverStick, 1);
 	public Button indexerShootButton = new JoystickButton(driverStick, 2);
 	public Button indexerStopButton = new JoystickButton(driverStick, 3);
 
@@ -96,12 +94,9 @@ public class OI {
 
 	// Constructor to set all of the commands and buttons
 	public OI(RobotContainer robotContainer) {
-		// telling the button that when its pressed to execute example command with the
-		// robot container's instance of example subsystem
 		indexerStopButton
 				.toggleWhenPressed(new ProcessBallsCommandGroup(robotContainer.m_IndexerSubsystem, indexerShootButton));
 
-		exampleSubsystemMethod.whenPressed(new ExampleCommand(robotContainer.m_ExampleSubsystem));
 
 		// LIFT
 		liftUpButton.whenPressed(new LiftUpCommand(robotContainer.m_liftSubsystem));
@@ -130,8 +125,6 @@ public class OI {
 				.whenPressed(new RotateControlPanelCommand(robotContainer.m_controlPanelColorSubsystem));
 		controlPanelSetToTargetButton
 				.whenPressed(new SetToTargetColorCommand(robotContainer.m_controlPanelColorSubsystem));
-
-		exampleSubsystemMethod.whenPressed(new ExampleCommand(robotContainer.m_ExampleSubsystem));
 
 		climbDeployRailsButton.whenActive(new ClimbDeployRailsCommand(robotContainer.m_ClimbLiftSubsystem));
 		climbExtendArmButton.whenActive(new ClimbExtendArmCommand(robotContainer.m_ClimbMotorSubsystem));
