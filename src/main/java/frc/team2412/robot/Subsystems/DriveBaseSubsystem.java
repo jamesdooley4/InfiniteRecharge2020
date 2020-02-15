@@ -74,12 +74,12 @@ public class DriveBaseSubsystem extends SubsystemBase implements Loggable {
 		m_gyro = gyro;
 		m_gearShifter = gearShifter;
 
-		m_rightMotor1.setInverted(true);
 
 		m_leftMotor1 = leftMotor1;
 		m_leftMotor2 = leftMotor2;
 		m_rightMotor1 = rightMotor1;
 		m_rightMotor2 = rightMotor2;
+		m_rightMotor1.setInverted(true);
 		m_leftMotor2.follow(leftMotor1);
 		m_rightMotor2.follow(rightMotor1);
 
