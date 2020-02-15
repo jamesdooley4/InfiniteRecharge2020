@@ -6,19 +6,18 @@ plugins {
 
 repositories {
   maven { url 'https://jitpack.io' }
+  maven {
+    credentials  {
+        username = "UserName"
+        password = "${githubPat}"
+    }
+    url 'https://maven.pkg.github.com/robototes/2412RobotLibrary' }
 }
 
 sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
 
 def ROBOT_MAIN_CLASS = "frc.team2412.robot.Main"
-
-repositories{
-	maven{
-		name 'jitpack'
-		url 'http://jitpack.io'
-	}
-}
 
 // Define my targets (RoboRIO) and artifacts (deployable files)
 // This is added by GradleRIO's backing project EmbeddedTools.
@@ -55,7 +54,7 @@ def includeDesktopSupport = false
 // Defining my dependencies. In this case, WPILib (+ friends), and vendor libraries.
 // Also defines JUnit 4.
 dependencies {
-    compile project(":robot_library") //not building until project is updated
+    implementation 'com.robototes:2412RobotLibrary:2020.1_maven4'
     
     //compile pathfinder()
     
