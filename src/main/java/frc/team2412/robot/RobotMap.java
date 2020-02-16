@@ -30,13 +30,6 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 //remember to declare robot container at the bottom of this class
 public class RobotMap {
 
-	private static final boolean HAS_DRIVEBASE = true;
-	private static final boolean HAS_INTAKE = false;
-	private static final boolean HAS_INDEX = false;
-	private static final boolean HAS_LIFT = false;
-	private static final boolean HAS_CLIMB = false;
-	private static final boolean HAS_SHOOTER = false;
-
 	// DRIVEBASE SUBSYSTEM
 	// -------------------------------------------------------------------------
 	// DriveBase Motor ports
