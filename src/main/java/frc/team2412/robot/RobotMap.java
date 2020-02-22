@@ -29,6 +29,24 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 //remember to declare robot container at the bottom of this class
 public class RobotMap {
 
+    public static enum Motor {
+        DRIVE_LEFT_FRONT(14),
+        DRIVE_LEFT_BACK(15),
+        DRIVE_RIGHT_FRONT(1),
+        DRIVE_RIGHT_BACK(0),
+        CLIMB1(2),
+        CLIMB2(3),
+        TURRET(4),
+        FLYWHEEL_LEFT(5),
+        FLYWHEEL_RIGHT(6),
+        CONTROL_PANEL(7);
+
+        public final int id;
+        private Motor(int motorId) {
+            id = motorId;
+        }
+    }
+
     //CHOICE FOR INDEX/INTAKE MODULE
     public static enum IndexIntakeModule{
         ONE(11, 12), TWO(21, 22), THREE(31, 32);
@@ -54,19 +72,13 @@ public class RobotMap {
 
     // DRIVEBASE SUBSYSTEM
     // -------------------------------------------------------------------------
-    // DriveBase Motor ports
-    public static final int DRIVE_LEFT_FRONT_ID = 14;
-    public static final int DRIVE_LEFT_BACK_ID = 15;
-    public static final int DRIVE_RIGHT_FRONT_ID = 1;
-    public static final int DRIVE_RIGHT_BACK_ID = 0;
-
     private static final int DRIVE_SOLENOID_PORT = 0;
 
     // DriveBase Motors
-    public static WPI_TalonFX driveLeftFront = new WPI_TalonFX(DRIVE_LEFT_FRONT_ID);
-    public static WPI_TalonFX driveLeftBack = new WPI_TalonFX(DRIVE_LEFT_BACK_ID);
-    public static WPI_TalonFX driveRightFront = new WPI_TalonFX(DRIVE_RIGHT_FRONT_ID);
-    public static WPI_TalonFX driveRightBack = new WPI_TalonFX(DRIVE_RIGHT_BACK_ID);
+    public static WPI_TalonFX driveLeftFront = new WPI_TalonFX(Motor.DRIVE_LEFT_FRONT.id);
+    public static WPI_TalonFX driveLeftBack = new WPI_TalonFX(Motor.DRIVE_LEFT_BACK.id);
+    public static WPI_TalonFX driveRightFront = new WPI_TalonFX(Motor.DRIVE_RIGHT_FRONT.id);
+    public static WPI_TalonFX driveRightBack = new WPI_TalonFX(Motor.DRIVE_RIGHT_BACK.id);
 
     // DriveBase SpeedControllerGroups
     public static SpeedControllerGroup driveLeftSide = new SpeedControllerGroup(driveLeftFront, driveLeftBack);
@@ -89,10 +101,8 @@ public class RobotMap {
     public static Solenoid climbRightPneumatic = new Solenoid(pneumatic2Open);
 
     // Motors
-    private static final int climbMotor1 = 1;
-    private static final int climbMotor2 = 2;
-    public static CANSparkMax leftClimbMotor = new CANSparkMax(climbMotor1, MotorType.kBrushless);
-    public static CANSparkMax rightClimbMotor = new CANSparkMax(climbMotor2, MotorType.kBrushless);
+    public static CANSparkMax leftClimbMotor = new CANSparkMax(Motor.CLIMB1.id, MotorType.kBrushless);
+    public static CANSparkMax rightClimbMotor = new CANSparkMax(Motor.CLIMB2.id, MotorType.kBrushless);
 
     // INDEX SUBSYSTEM
     // ---------------------------------------------------------------------------
@@ -155,16 +165,12 @@ public class RobotMap {
 
     // Turret Subsystem
     // ------------------------------------------------------------------------------
-    public static final int turretMotorID = 1;
-    public static WPI_TalonSRX turretMotor = new WPI_TalonSRX(turretMotorID);
+    public static WPI_TalonSRX turretMotor = new WPI_TalonSRX(Motor.TURRET.id);
 
     // Flywheel subsystem
     // ------------------------------------------------------------------------------
-    public static final int flywheelLeftMotorID = 0;
-    public static final int flywheelRightMotorID = 2;
-
-    public static CANSparkMax flywheelLeftMotor = new CANSparkMax(flywheelLeftMotorID, MotorType.kBrushless);
-    public static CANSparkMax flywheelRightMotor = new CANSparkMax(flywheelRightMotorID, MotorType.kBrushless);
+    public static CANSparkMax flywheelLeftMotor = new CANSparkMax(Motor.FLYWHEEL_LEFT.id, MotorType.kBrushless);
+    public static CANSparkMax flywheelRightMotor = new CANSparkMax(Motor.FLYWHEEL_RIGHT.id, MotorType.kBrushless);
 
     // Hood Subsystem
     // -----------------------------------------------------------------------------
@@ -201,8 +207,7 @@ public class RobotMap {
     public static ColorSensorV3 colorSensor = new ColorSensorV3(COLOR_SESNOR_PORT);
     public static ColorMatch colorMatcher = new ColorMatch();
 
-    public static final int CONTROL_PANEL_MOTOR_PORT = 1;
-    public static WPI_TalonFX colorSensorMotor = new WPI_TalonFX(CONTROL_PANEL_MOTOR_PORT);
+    public static WPI_TalonFX colorSensorMotor = new WPI_TalonFX(Motor.CONTROL_PANEL.id);
 
     // Limelight subsystem
     // ----------------------------------------------------------------------------------------------
