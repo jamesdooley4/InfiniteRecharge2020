@@ -196,7 +196,7 @@ public class RobotMap {
 
     // INDEXER CONTROLS THESE NOT INTAKE FYI
     public static DigitalInput intakeFront = new DigitalInput(DIOPort.INTAKE_FRONT_SENSOR.id);
-    public static DigitalInput intakeBack = new DigitalInput(DIOPort.INTAKE_FRONT_SENSOR.id);
+    public static DigitalInput intakeBack = new DigitalInput(DIOPort.INTAKE_BACK_SENSOR.id);
 
     // Turret Subsystem
     // ------------------------------------------------------------------------------
